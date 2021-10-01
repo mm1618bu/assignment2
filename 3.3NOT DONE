@@ -1,0 +1,30 @@
+import math
+from math import radians
+
+
+x1,y1 = math.radians(-84.4391200),math.radians(33.7026500)
+x2,y2 = math.radians(28.5451700),math.radians(-81.3732900)
+x3,y3 = math.radians(32.0722500),math.radians(-81.1356200)
+x4,y4 = math.radians(35.2261900),math.radians(-80.8434900)
+radius = 6371
+
+"d = radius * arccos(sin(x1)*sin(x2)+cos(x1)*cos(x2)*cos(y1-y2))"
+e = radius * math.sin(x1)*math.sin(x2)+math.cos(x1)*math.cos(x2)*math.cos(y1-y2)
+print("Side 1: ", e)
+g = radius * math.sin(x2)*math.sin(x3)+math.cos(x2)*math.cos(x3)*math.cos(y2-y3)
+print("Side 2: ",g)
+h = radius * math.sin(x4)*math.sin(x1)+math.cos(x4)*math.cos(x1)*math.cos(y4-y1)
+print("Side 4: ",h)
+f = radius * math.sin(x3)*math.sin(x4)+math.cos(x3)*math.cos(x4)*math.cos(y3-y4)
+print("Side 3: ",f )
+
+1-2,2-3,3-4,4-1
+
+s = (e+g+f)/2
+t = s-e
+u = s-g
+v = s-f
+"parea = int(s(s-e)(s-g)(s-f))"
+carea = s*(t*u*v)
+barea = int(math.sqrt(carea))
+print(carea)
